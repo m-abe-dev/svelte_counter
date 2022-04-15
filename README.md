@@ -17,6 +17,10 @@
 3. ソースを AWS 　 Amplify に hosting して実行できるようにする
 4. GitHub Repository URL と Amplify の URL を提出しレビューを受ける
 
+### 見本
+
+https://vue-ts-composition.vercel.app/
+
 ## Get started
 
 Install the dependencies...
