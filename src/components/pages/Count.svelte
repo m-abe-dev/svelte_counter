@@ -1,6 +1,8 @@
 <script lang="ts">
   import { count } from '../../stores/store';
   import CountList from '../blocks/CountList.svelte';
+
+  // $: sumCount = count ;
 </script>
 
 <h1>Svelte Counter</h1>
