@@ -1,14 +1,15 @@
 <script lang="ts">
-  // import { count } from '../../stor../../stores/store
+  export let title: string;
 </script>
 
 <div class="input">
-  <input type="text" placeholder="type title .." />
+  <input type="text" value={title} />
 </div>
 
 <style>
   input {
     margin: 0;
+    opacity: 0.5;
   }
   .input {
     position: relative;
