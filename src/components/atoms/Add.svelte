@@ -3,8 +3,7 @@
 </script>
 
 <div class="button">
-  <!-- <button on:click>{button}</button> -->
-  <button>{text}</button>
+  <button on:click>{text}</button>
 </div>
 
 <style>

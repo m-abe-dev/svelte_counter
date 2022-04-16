@@ -3,18 +3,35 @@
   import Input from '../atoms/Input.svelte';
   import Button from '../atoms/Button.svelte';
   import Add from '../atoms/Add.svelte';
+
+  let text = 'new';
+  let counters: string[] = [''];
+
+  function addCounter() {
+    counters = [...counters, text];
+    text = '';
+  }
+
+  function removeFromList(index) {
+    counters.splice(index, 1);
+    counters = counters;
+  }
 </script>
 
-<div class="color">
-  <span class="close" />
-  <div class="wrap">
-    <Input />
-    <span class="count">{$count < 0 ? 0 : $count}</span>
-    <Button on:click={count.increment} button={'+'} />
-    <Button on:click={count.decrement} button={'-'} />
-    <Button on:click={count.reset} button={'0'} />
-  </div>
-  <Add text={'ADD NEW COUNTER'} />
+<div>
+  {#each counters as counter, index}
+    <div class="color">
+      <span class="close" on:click={() => removeFromList(index)} />
+      <div class="wrap">
+        <Input title={text} />
+        <span class="count">{$count < 0 ? 0 : $count}</span>
+        <Button on:click={count.increment} button={'+'} />
+        <Button on:click={count.decrement} button={'-'} />
+        <Button on:click={count.reset} button={'0'} />
+      </div>
+      <Add text={'ADD NEW COUNTER'} on:click={() => addCounter()} />
+    </div>
+  {/each}
 </div>
 
 <style>
