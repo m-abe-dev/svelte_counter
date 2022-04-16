@@ -1,10 +1,11 @@
 <script lang="ts">
+  import { count } from '../../stores/store';
   import CountList from '../blocks/CountList.svelte';
 </script>
 
 <h1>Svelte Counter</h1>
 <div class="highlight"><span>Title List : </span> new</div>
-<div class="highlight"><span>Total :</span> 2</div>
+<div class="highlight"><span>Total : </span>{$count}</div>
 <CountList />
 
 <style>
