@@ -1,37 +1,47 @@
 <script lang="ts">
-  import { count } from '../../stores/store';
+  import { items } from '../../stores/count';
   import Input from '../atoms/Input.svelte';
   import Button from '../atoms/Button.svelte';
   import Add from '../atoms/Add.svelte';
 
-  let text = 'new';
-  let counters: string[] = [''];
+  export let text: string;
+  export let count: number;
+  export let index: number;
 
-  function addCounter() {
-    counters = [...counters, text];
-    text = '';
-  }
+  const increment = () => {
+    count += 1;
+  };
+  const decrement = () => {
+    if (count > 0) {
+      count -= 1;
+    }
+  };
+  const reset = () => {
+    count = 0;
+  };
 
-  function removeFromList(index) {
-    counters.splice(index, 1);
-    counters = counters;
+  const addCounter = () => {
+    $items = [...$items, { title: 'new', count: 0 }];
+  };
+
+  function removeFromList() {
+    $items.splice(index, 1);
+    $items = $items;
   }
 </script>
 
 <div>
-  {#each counters as counter, index}
-    <div class="color">
-      <span class="close" on:click={() => removeFromList(index)} />
-      <div class="wrap">
-        <Input title={text} />
-        <span class="count">{$count < 0 ? 0 : $count}</span>
-        <Button on:click={count.increment} button={'+'} />
-        <Button on:click={count.decrement} button={'-'} />
-        <Button on:click={count.reset} button={'0'} />
-      </div>
-      <Add text={'ADD NEW COUNTER'} on:click={() => addCounter()} />
+  <div class="color">
+    <span class="close" on:click={() => removeFromList()} />
+    <div class="wrap">
+      <Input bind:title={text} />
+      <span class="count">{count}</span>
+      <Button on:click={increment} button={'+'} />
+      <Button on:click={decrement} button={'-'} />
+      <Button on:click={reset} button={'0'} />
     </div>
-  {/each}
+    <Add text={'ADD NEW COUNTER'} on:click={addCounter} />
+  </div>
 </div>
 
 <style>

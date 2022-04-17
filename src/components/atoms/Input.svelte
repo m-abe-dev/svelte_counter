@@ -3,7 +3,7 @@
 </script>
 
 <div class="input">
-  <input type="text" value={title} placeholder="type title .." />
+  <input type="text" bind:value={title} placeholder="type title .." />
 </div>
 
 <style>
