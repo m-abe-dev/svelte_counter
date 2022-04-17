@@ -25,6 +25,17 @@ https://vue-ts-composition.vercel.app/
 
 https://master.d1sq6qt5d56htp.amplifyapp.com/
 
+### 工夫した点
+
+- なるべくチュートリアルで習ったことを慣れるために満遍なく使った(store による状態管理など)
+- アトミックデザインでディレクトリを構成した
+
+### 苦労した点
+
+- 慣れていなかったためケアレスなミスで時間がかかってしまった
+
+- svelte 独自のメソッドで一部理解が曖昧な部分がある
+
 ## Get started
 
 Install the dependencies...
